@@ -12,12 +12,12 @@ const app = express()
 app.use(bodyParser.json())
 app.use(cors({origin:'http://localhost:4200'}))
 app.use('/api/employee', empolyeRoute)
-
+ 
 
 
 connectdb().then(() => {
     app.listen(3000, () => console.log('sever stated at the port 3000...'))
-    console.log('database connected successfully....');
+    console.log('database connected successfully....'); 
 }).catch(error => console.log(error))
 
- 
+  

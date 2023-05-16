@@ -8,7 +8,7 @@ const empModel = require('../model/dbmodel.js')
 
 const { validateUserId } = require('./middlewere/middlewere.js')
 const { json } = require('body-parser')
-
+ const register = require('../controller/logincontroller.js')
 
  const methodes = getMethodes(empModel)
 
@@ -58,7 +58,18 @@ routes.delete('/delete/:_id' , validateUserId ,(req , res) =>{
     methodes.delete(req.params._id).then(data => 
         res.status(200).json({message:'employee deleted successfully..',
     statusCode:200}))
-        .catch(error => res.status(400).json(error))
+})
+
+routes.post('/register',(req, res) =>{
+    register.register(req.body).then(data =>{
+        res.status(res.statusCode).json(data)
+    })
+})
+routes.post('/login',(req,res) =>{
+  register.login(req.body).then(data => {
+    res.status(res.statusCode).json(data)
+  })
 })
 
 module.exports = routes
+ 
