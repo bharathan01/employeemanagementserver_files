@@ -2,9 +2,8 @@ const express = require('express')
 
 const empModel = require('../model/dbmodel.js')
 
-//importing the main methode for reusability
  const { getMethodes } = require ('../service/mainmethodes.js')
-//importing the middleware for verify the user id
+
 
 const { validateUserId } = require('./middlewere/middlewere.js')
 const { json } = require('body-parser')
